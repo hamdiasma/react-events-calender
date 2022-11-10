@@ -27,3 +27,14 @@ body {
   border       : 1px solid rgb(111, 109, 109);
   border-bottom: none;
 }
+
+.calanderEvent {
+  position       : absolute;
+  background     : rgba(23, 87, 198, 0.2);
+  width          : 100%;
+  max-width      : 100%;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  font-weight    : bold;
+}

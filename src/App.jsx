@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 import React, { useEffect, useState } from "react";
+import CalanderEvent from "./components/CalanderEvent";
 import CalenderDiv from "./components/CalenderDivDay";
 import { events } from "./events"
 import { convertHourstoMinute } from "./utils/features";
@@ -27,6 +28,10 @@ function App() {
   return <div className="App">
     {
       [...Array(24)].map((elem, i) => <CalenderDiv key={i} time={i.toFixed(2)} />)
+    }
+
+    {
+      eventsState.map(event => <CalanderEvent key={event.id} event={event} events={eventsState} />)
     }
   </div>;
 }

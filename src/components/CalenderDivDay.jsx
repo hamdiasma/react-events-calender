@@ -4,7 +4,7 @@ import React from 'react'
 function CalenderDiv({ time }) {
     return (
         <div className='CalanderDay'>
-            <small >{time}</small>
+            <small>{time}</small>
         </div>
     )
 }
