@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import CalanderEvent from "./components/CalanderEvent";
 import CalenderDiv from "./components/CalenderDivDay";
 import { events } from "./events"
-import { convertHourstoMinute } from "./utils/features";
+import { configurationEvents, convertHourstoMinute } from "./utils/features";
 function App() {
   const [eventsState, setEventesState] = useState([])
-
+  const [eventsSuccessive, setEventsSuccessive] = useState([])
 
   //  rerender data events to facilitate reading and writing 
   useEffect(() => {
@@ -22,9 +22,12 @@ function App() {
     setEventesState(arr)
   }, [])
 
-
-
-
+  useEffect(() => {
+    if (!eventsState) return;
+    const data = configurationEvents(eventsState)
+    setEventsSuccessive(data)
+  }, [eventsState])
+  console.log(eventsSuccessive)
   return <div className="App">
     {
       [...Array(24)].map((elem, i) => <CalenderDiv key={i} time={i.toFixed(2)} />)
