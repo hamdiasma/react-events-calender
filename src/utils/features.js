@@ -27,7 +27,7 @@ export const configurationEvents = events => {
         eventsSuccessive: [...newEvt.eventsSuccessive, element2]
       };
     } else if (element2?.startDate >= element1.endDate) {
-      allEvents.push({ newEvt });
+      allEvents.push(newEvt);
       newEvt = {
         start: element2?.startDate,
         end: element2?.endDate,
@@ -35,6 +35,6 @@ export const configurationEvents = events => {
       };
     }
   }
-  allEvents.push({ newEvt });
+  allEvents.push(newEvt);
   return allEvents;
 };

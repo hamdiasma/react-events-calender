@@ -27,15 +27,23 @@ function App() {
     const data = configurationEvents(eventsState)
     setEventsSuccessive(data)
   }, [eventsState])
-  console.log(eventsSuccessive)
+
+
   return <div className="App">
     {
       [...Array(24)].map((elem, i) => <CalenderDiv key={i} time={i.toFixed(2)} />)
     }
 
     {
-      eventsState.map(event => <CalanderEvent key={event.id} event={event} events={eventsState} />)
+      eventsSuccessive?.map((elements) => {
+
+        const lengthEvents = elements.eventsSuccessive.length
+        return elements.eventsSuccessive.map((event, i) => <CalanderEvent key={event.id} i={i} lengthEvents={lengthEvents} event={event} events={eventsState} />)
+      })
+
+
     }
+
   </div>;
 }
 

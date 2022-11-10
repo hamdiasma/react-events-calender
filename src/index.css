@@ -18,6 +18,8 @@ body {
 .App {
   height  : 2400px;
   position: relative;
+  overflow: hidden;
+
 }
 
 .CalanderDay {
